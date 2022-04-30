@@ -32,7 +32,7 @@ class AuthController extends Controller
             'token' => $this->generateApiToken()
         ]);
         if ($user) {
-            return response()->json($user);
+            return response()->json($user, 201);
         } else {
             return response()->json(['message' => 'invalid credentials'], '401');
         }
