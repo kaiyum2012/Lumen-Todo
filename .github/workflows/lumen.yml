@@ -1,0 +1,47 @@
+name: Tests
+on:
+  push:
+    branches:
+      - master
+      - develop,
+  pull_request:
+    branches:
+      - master
+      - develop
+jobs:
+  lumen-tests:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        operating-system: [ 'ubuntu-latest' ]
+        php-versions: [ '7.4' ]
+        phpunit-versions: [ 'latest' ]
+        include:
+          - operating-system: 'ubuntu-latest'
+            php-versions: '7.4'
+    services:
+      mysql:
+        image: mysql:latest
+        env:
+          MYSQL_DATABASE: todos_test
+          MYSQL_HOST: 127.0.0.1
+          MYSQL_USER: admin
+          MYSQL_PASSWORD: root
+          MYSQL_ROOT_PASSWORD: root
+        ports:
+          - 3306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+    steps:
+      - uses: actions/checkout@v2
+      - uses: nanasess/setup-php@master
+        with:
+          php-version: '7.4'
+      - name: Copy .env
+        run: |
+          php -r "file_exists('.env') || copy('.env.github', '.env');"
+      - name: Update Composer
+        run: sudo composer self-update 1.10.15 --no-interaction
+      - name: Run Composer Install
+        run: composer install --no-interaction
+      - name: run tests
+        run: vendor/bin/phpunit

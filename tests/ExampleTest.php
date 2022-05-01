@@ -18,4 +18,9 @@ class ExampleTest extends TestCase
             $this->app->version(), $this->response->getContent()
         );
     }
+
+    public function testGetTodos()
+    {
+        $this->json('get', '/api/todo')->seeStatusCode(401);
+    }
 }
