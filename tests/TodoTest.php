@@ -9,9 +9,9 @@ class TodoTest extends TestCase
 {
     use DatabaseMigrations, ApiTokenGenerator;
 
-    private array $validaData = ['email' => 'abdul@todo.com', 'password' => 'password'];
-    private array $invalidData = ['email' => '', 'password' => ''];
-    private array $existingUser = ['email' => 'abdul@todo.com', 'password' => 'password'];
+    private $validaData = ['email' => 'abdul@todo.com', 'password' => 'password'];
+    private $invalidData = ['email' => '', 'password' => ''];
+    private $existingUser = ['email' => 'abdul@todo.com', 'password' => 'password'];
 
     protected function setUp(): void
     {
