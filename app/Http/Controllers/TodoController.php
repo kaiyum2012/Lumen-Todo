@@ -39,7 +39,7 @@ class TodoController extends Controller
         $todo = Todo::query()->make(['note' => $request->get('note')]);
         $response = Auth::user()->todos()->save($todo);
 
-        return response()->json($response);
+        return response()->json($response,201);
     }
 
     /**
