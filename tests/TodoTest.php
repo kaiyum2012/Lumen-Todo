@@ -3,6 +3,7 @@
 use App\Models\Todo;
 use App\Models\User;
 use App\Traits\ApiTokenGenerator;
+use Illuminate\Support\Facades\Artisan;
 use Laravel\Lumen\Testing\DatabaseMigrations;
 
 class TodoTest extends TestCase
@@ -66,11 +67,9 @@ class TodoTest extends TestCase
 
     public function testTodosFeature()
     {
+        Artisan::call('migrate:fresh');
         // Truncate tables
-        Todo::query()->truncate();
         $this->assertTrue(Todo::all()->count() === 0, 'todo table is not truncated completely');
-
-        User::query()->truncate();
         $this->assertTrue(User::all()->count() === 0, 'Users table is not truncated completely');
 
         $user = User::factory()->create(array_merge($this->validaData, ['token' => $this->generateApiToken()]));
