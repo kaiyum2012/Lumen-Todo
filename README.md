@@ -1,8 +1,6 @@
 # Todo App (API) - Lumen
 
-[![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
-[![Total Downloads](https://img.shields.io/packagist/dt/laravel/framework)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Stable Version](https://img.shields.io/packagist/v/laravel/framework)](https://packagist.org/packages/laravel/lumen-framework)
+[![Build and UnitTest](https://github.com/kaiyum2012/laravel-app-barebone/actions/workflows/build_test_app.yml/badge.svg?branch=main)](https://github.com/kaiyum2012/laravel-app-barebone/actions/workflows/build_test_app.yml)
 [![License](https://img.shields.io/packagist/l/laravel/framework)](https://packagist.org/packages/laravel/lumen-framework)
 
 ## Technology Stack
