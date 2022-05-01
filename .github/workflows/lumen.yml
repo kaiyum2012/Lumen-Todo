@@ -23,7 +23,7 @@ jobs:
       mysql:
         image: mysql:latest
         env:
-          MYSQL_DATABASE: todo_test
+          MYSQL_DATABASE: todos_test
           MYSQL_HOST: 127.0.0.1
           MYSQL_USER: admin
           MYSQL_PASSWORD: root
