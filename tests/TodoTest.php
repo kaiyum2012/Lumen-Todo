@@ -67,11 +67,11 @@ class TodoTest extends TestCase
     public function testTodosFeature()
     {
         // Truncate tables
-        User::query()->delete();
-        $this->assertTrue(User::all()->count() === 0, 'Users table is not truncated completely');
-
-        Todo::query()->delete();
+        Todo::query()->truncate();
         $this->assertTrue(Todo::all()->count() === 0, 'todo table is not truncated completely');
+
+        User::query()->truncate();
+        $this->assertTrue(User::all()->count() === 0, 'Users table is not truncated completely');
 
         $user = User::factory()->create(array_merge($this->validaData, ['token' => $this->generateApiToken()]));
 
