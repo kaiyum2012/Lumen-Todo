@@ -205,13 +205,13 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "{{url}}/todo/1/complete",
+					"raw": "{{url}}/todo/2/complete",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
 						"todo",
-						"1",
+						"2",
 						"complete"
 					]
 				}
